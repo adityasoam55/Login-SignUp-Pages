@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup'
 import { Link } from 'react-router-dom';
+import Input from './Input';
 
 function Login2() {
     function handleClick(values) {
@@ -28,33 +29,31 @@ function Login2() {
             <div className='flex flex-col items-center w-60 gap-2 bg-gray-200 py-4 rounded-lg'>
                 <h3 className='font-bold'>Login to codeAdi.io</h3>
                 <Link to='/' className='text-sm'>Don't have an Account? <span className='text-blue-600'>SignUp</span></Link>
-                <input className='border outline-none rounded-md px-2'
-                    type='email'
+                <Input
+                    type="email"
                     value={values.email}
-                    placeholder='Email'
-                    name='email'
-                    autoComplete='email'
+                    placeholder="Email"
+                    name="email"
+                    autoComplete="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    touched={touched.email}
+                    error={errors.email}
                 />
-                {touched.email && errors.email && <p className='font-xs text-red-600'>{errors.email}</p>}
-                <input className='border outline-none rounded-md px-2'
+
+                <Input
                     type="password"
                     value={values.password}
-                    placeholder='Password'
-                    name='password'
+                    placeholder="Password"
+                    name="password"
+                    autoComplete="password"
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    touched={touched.password}
+                    error={errors.password}
                 />
-                {touched.password && errors.password && <p className='font-xs text-red-600'>{errors.password}</p>}
                 <div>
-                    {/* <button className='bg-blue-600 text-white rounded-md px-2 py-0.5 mr-4'
-                        type='button'
-                        onClick={resetForm}
-                    >
-                        Reset</button> */}
-
-                    <button className='bg-blue-600 text-white rounded-md px-2 py-0.5 disabled:bg-blue-300'
+                    <button className='bg-blue-600 text-white rounded-md px-2 py-0.5 outline-none disabled:bg-blue-300'
                         type='submit'
                         onClick={handleSubmit}
                         disabled={!isValid}

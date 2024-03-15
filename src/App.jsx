@@ -11,7 +11,7 @@ function App() {
     <div>
       <Routes >
       <Route index element={<Signup />}></Route>
-      <Route path='/login' element={<Login2 />}></Route>
+      <Route path='/login2/' element={<Login2 />}></Route>
       <Route path='/passwordreset' element={<PasswrodReset />}></Route>
       </Routes>
     </div>
